@@ -15,8 +15,8 @@ class CardsController extends Controller
 
     public function index()
     {
-        $cards = Card::get();
-
+        $cards = Card::with('location', 'promoter', 'fights')->get();
+       
         if (request()->wantsJson()) {
             return $cards;
         }
@@ -42,10 +42,12 @@ class CardsController extends Controller
             'selected_headline_a' => 'required',
             'selected_headline_b' => 'required'
         ]);
+        // ensure that the date that is submitted will be accepted
+        // by the DB
         $date = \DateTime::createFromFormat('m-d-Y', request('date'));
-
         $newdate = $date->format('Y-m-d H:i:s');
 
+        // create the initial card and save it's data to a variable
     	$card = Card::create([
     		'promoter_id' => request('promoter_id'),
     		'network_id' => request('network_id'),
@@ -55,17 +57,15 @@ class CardsController extends Controller
             'viewers' => request('viewers')
     	]);
 
-    	// i'm guessing i need a return here
-    	// because card doesn't get an ID until submitted
+        // we use $card to persist it's ID to make sure we have
+        // a relationship between fights and cards
 
     	$fight = Fight::create([
     		'type' => request('type'),
     		'card_id' => $card->id
     	]);
 
-    	// somewhere we're going to get that card id
-    	// again i think we need to return fight but i don't know
-
+        // we now attach boxers to a fight and it's stored in our pivot table
     	$fight->boxers()->attach([
     		request('selected_headline_a'),
     		request('selected_headline_b')

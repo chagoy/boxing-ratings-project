@@ -9,7 +9,7 @@ class BoxersController extends Controller
 {
     public function index()
     {
-    	$boxers = Boxer::get();
+    	$boxers = Boxer::with('fights')->get();
 
     	if (request()->wantsJson()) {
     		return $boxers;

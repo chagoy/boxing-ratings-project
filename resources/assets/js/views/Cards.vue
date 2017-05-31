@@ -1,12 +1,14 @@
 <template>
-	
+	<div>
+		<h1 v-for="card in cards">{{ card.location_id }}</h1>
+	</div>
 </template>
 
 <script>
 	export default {
 		data() {
 			return {
-				cards: '', 
+				cards: [], 
 				fights: ''
 			}
 		},
@@ -21,8 +23,10 @@
 					.then(this.refreshCards);
 			},
 			refreshCards({data}) {
-				this.cards = data;
-				this.fights = data.fights;
+				//this.cards = data;
+				for (var i = 0; i < data.length; i++) {
+					this.cards.push(data[i]);
+				}
 			}
 		}
 	}
