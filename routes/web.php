@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //API STUFF
 Route::post('/api/card', 'CardsController@store');
 Route::get('/api/card', 'CardsController@index');
-Route::get('/api/card/{card}', 'CardsController@show');
+Route::get('/api/cards/{network}/{date}', 'CardsController@show');
 
 Route::get('/api/boxers', 'BoxersController@index');
 Route::post('/api/boxers', 'BoxersController@store');

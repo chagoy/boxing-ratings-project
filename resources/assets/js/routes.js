@@ -27,16 +27,17 @@ let routes = [
 		component: require('./views/Network')
 	},
 	{
+		path: '/:network/:date',
+		name: 'card', 
+		component: require('./views/Card')
+	},
+	{
 		path: '/submit',
 		component: require('./views/Submit')
 	},
 	{
 		path: '/contact',
 		component: require('./views/Contact')
-	},
-	{
-		path: '/cards',
-		component: require('./views/Cards')
 	}
 	
 ];

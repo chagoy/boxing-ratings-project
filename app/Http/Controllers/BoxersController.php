@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Boxer;
+use App\Promoter;
 use Illuminate\Http\Request;
 
 class BoxersController extends Controller
@@ -38,6 +39,11 @@ class BoxersController extends Controller
 
     public function show(Boxer $boxer)
     {
-        return compact('boxer');
+        $boxer->load('fights.card.network');
+
+        $promoter = Promoter::where('id', $boxer->promoter_id)->first();
+
+        return compact('boxer', 'promoter');
+
     }
 }

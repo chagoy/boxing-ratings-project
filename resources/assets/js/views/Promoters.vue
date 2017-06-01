@@ -23,6 +23,8 @@
 				</section>
 
 			<div class="container">
+				<h1>List of boxers currently signed with {{ promoter_data.name }}</h1>
+
 					<table class="table">
 						<thead>
 							<tr>
@@ -38,9 +40,29 @@
 							</td>
 						</tbody>
 					</table>
+				<h1>List of cards promoted by {{ promoter_data.name }}</h1>
+					<table class="table">
+						<thead>
+							<tr>
+								<th><abbr title="Network">Network</abbr></th>
+								<th><abbr title="Date">Date</abbr></th>
+								<th><abbr title="Date">Viewers</abbr></th>
+							</tr>
+						</thead>
+						<tbody v-for="card in cards">
+							<td>
+								<router-link :to="{ name: 'card', params: { network: card.network.name, date: card.date }}">{{ card.network.name }}</router-link>
+							</td>
+							<td>
+								<router-link :to="{ name: 'card', params: {network: card.network.name, date: card.date }}">{{ card.date }}</router-link>
+							</td>
+							<td>
+								{{ card.viewers }}
+							</td>
+						</tbody>
+					</table>
 				</div>
 			</div> 
-
 	</div>
 	
 </template>
@@ -58,6 +80,7 @@
 				promoter_data: false,
 				boxers: '',
 				ratings: '',
+				cards: '',
 				boxer_page: true
 			}
 		},
@@ -79,6 +102,7 @@
 			promoter({data}) {
 				this.promoter_data = data.promoter;
 				this.boxers = data.promoter.boxers;
+				this.cards = data.promoter.cards;
 			},
 
 			boxerInfo(boxer) {

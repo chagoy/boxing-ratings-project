@@ -4494,6 +4494,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4504,7 +4524,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	data: function data() {
 		return {
 			slug: this.$route.params.boxer,
-			boxer: ''
+			boxer: '',
+			promoter: '',
+			fights: []
 		};
 	},
 	created: function created() {
@@ -4520,52 +4542,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var data = _ref.data;
 
 			this.boxer = data.boxer;
-			//this.fights = data.boxer.fights;
-		}
-	}
-});
-
-/***/ }),
-/* 34 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-	data: function data() {
-		return {
-			cards: [],
-			fights: ''
-		};
-	},
-	created: function created() {
-		this.getCardsData();
-	},
-
-
-	methods: {
-		getCardsData: function getCardsData() {
-			axios.get('/api/card').then(this.refreshCards);
-		},
-		refreshCards: function refreshCards(_ref) {
-			var data = _ref.data;
-
-			//this.cards = data;
-			for (var i = 0; i < data.length; i++) {
-				this.cards.push(data[i]);
+			for (var i = 0; i < data.boxer.fights.length; i++) {
+				this.fights.push(data.boxer.fights[i]);
 			}
+			this.promoter = data.promoter;
 		}
 	}
 });
 
 /***/ }),
+/* 34 */,
 /* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4667,6 +4653,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4680,6 +4688,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			promoter_data: false,
 			boxers: '',
 			ratings: '',
+			cards: '',
 			boxer_page: true
 		};
 	},
@@ -4700,6 +4709,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.promoter_data = data.promoter;
 			this.boxers = data.promoter.boxers;
+			this.cards = data.promoter.cards;
 		},
 		boxerInfo: function boxerInfo(boxer) {
 			axios.get('/api/boxers/' + boxer).then(this.boxer);
@@ -4824,14 +4834,15 @@ var routes = [{
 	path: '/networks/:network',
 	component: __webpack_require__(48)
 }, {
+	path: '/:network/:date',
+	name: 'card',
+	component: __webpack_require__(76)
+}, {
 	path: '/submit',
 	component: __webpack_require__(51)
 }, {
 	path: '/contact',
 	component: __webpack_require__(46)
-}, {
-	path: '/cards',
-	component: __webpack_require__(45)
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
@@ -5101,40 +5112,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(34),
-  /* template */
-  __webpack_require__(53),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/Users/angelochagoy/code/events/resources/assets/js/views/Cards.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Cards.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1ead2354", Component.options)
-  } else {
-    hotAPI.reload("data-v-1ead2354", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
+/* 45 */,
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5208,9 +5186,9 @@ module.exports = Component.exports
 
 var Component = __webpack_require__(1)(
   /* script */
-  null,
+  __webpack_require__(79),
   /* template */
-  null,
+  __webpack_require__(80),
   /* scopeId */
   null,
   /* cssModules */
@@ -5218,6 +5196,20 @@ var Component = __webpack_require__(1)(
 )
 Component.options.__file = "/Users/angelochagoy/code/events/resources/assets/js/views/Network.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Network.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-20f578e1", Component.options)
+  } else {
+    hotAPI.reload("data-v-20f578e1", Component.options)
+  }
+})()}
 
 module.exports = Component.exports
 
@@ -5340,23 +5332,7 @@ if (false) {
 }
 
 /***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', _vm._l((_vm.cards), function(card) {
-    return _c('h1', [_vm._v(_vm._s(card.location_id))])
-  }))
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-1ead2354", module.exports)
-  }
-}
-
-/***/ }),
+/* 53 */,
 /* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5739,7 +5715,36 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('h1', [_vm._v(_vm._s(_vm.boxer.name))])])
+  return _c('div', [_c('section', {
+    staticClass: "hero"
+  }, [_c('div', {
+    staticClass: "hero-body"
+  }, [_c('div', {
+    staticClass: "container"
+  }, [_c('h1', {
+    staticClass: "title"
+  }, [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.boxer.name) + "\n\t\t\t\t")]), _vm._v(" "), _c('h2', {
+    staticClass: "subtitle"
+  }, [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.promoter.name) + "\n\t\t\t\t")])])])]), _vm._v(" "), _vm._l((_vm.fights), function(fight) {
+    return _c('article', {
+      key: fight.id,
+      staticClass: "message"
+    }, [_c('div', {
+      staticClass: "message-header"
+    }, [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'card',
+          params: {
+            network: fight.card.network.name,
+            date: fight.card.date
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(fight.card.network.name))])], 1), _vm._v(" "), _c('div', {
+      staticClass: "message-body"
+    }, [_vm._v("\n\t\t\t On " + _vm._s(fight.card.date) + " " + _vm._s(_vm.boxer.name) + " pulled in " + _vm._s(fight.card.viewers) + " viewers\n\t\t")])])
+  })], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -5949,7 +5954,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "subtitle"
   }, [_vm._v("\n\t\t\t\t\t\t\t" + _vm._s(_vm.promoter_data.name) + "\n\t\t\t\t\t\t")])])])]), _vm._v(" "), _c('div', {
     staticClass: "container"
-  }, [_c('table', {
+  }, [_c('h1', [_vm._v("List of boxers currently signed with " + _vm._s(_vm.promoter_data.name))]), _vm._v(" "), _c('table', {
     staticClass: "table"
   }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.boxers), function(boxer) {
     return _c('tbody', [_c('td', [_c('router-link', {
@@ -5962,6 +5967,30 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }, [_vm._v(_vm._s(boxer.name))])], 1)])
+  })], 2), _vm._v(" "), _c('h1', [_vm._v("List of cards promoted by " + _vm._s(_vm.promoter_data.name))]), _vm._v(" "), _c('table', {
+    staticClass: "table"
+  }, [_vm._m(1), _vm._v(" "), _vm._l((_vm.cards), function(card) {
+    return _c('tbody', [_c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'card',
+          params: {
+            network: card.network.name,
+            date: card.date
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.network.name))])], 1), _vm._v(" "), _c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'card',
+          params: {
+            network: card.network.name,
+            date: card.date
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.date))])], 1), _vm._v(" "), _c('td', [_vm._v("\n\t\t\t\t\t\t\t" + _vm._s(card.viewers) + "\n\t\t\t\t\t\t")])])
   })], 2)])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('thead', [_c('tr', [_c('th', [_c('abbr', {
@@ -5969,6 +5998,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "title": "Name"
     }
   }, [_vm._v("Name")])])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('tr', [_c('th', [_c('abbr', {
+    attrs: {
+      "title": "Network"
+    }
+  }, [_vm._v("Network")])]), _vm._v(" "), _c('th', [_c('abbr', {
+    attrs: {
+      "title": "Date"
+    }
+  }, [_vm._v("Date")])]), _vm._v(" "), _c('th', [_c('abbr', {
+    attrs: {
+      "title": "Date"
+    }
+  }, [_vm._v("Viewers")])])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -16289,6 +16332,199 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-602fdefa", module.exports)
+  }
+}
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(77),
+  /* template */
+  __webpack_require__(78),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/angelochagoy/code/events/resources/assets/js/views/Card.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Card.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c76b7f26", Component.options)
+  } else {
+    hotAPI.reload("data-v-c76b7f26", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 77 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			url_date: this.$route.params.date,
+			url_network: this.$route.params.network,
+			boxers: '',
+			location: '',
+			promoter: '',
+			network: '',
+			fight: '',
+			card: '',
+			viewers: ''
+		};
+	},
+	created: function created() {
+		this.fetch(this.url_network, this.url_date);
+	},
+
+
+	methods: {
+		fetch: function fetch(network, date) {
+			axios.get('/api/cards/' + network + '/' + date).then(this.assign);
+		},
+		assign: function assign(_ref) {
+			var data = _ref.data;
+
+			this.fight = data.fight;
+			this.network = data.network;
+			this.location = data.location;
+			this.card = data.card;
+			this.promoter = data.promoter;
+			this.boxers = data.fight[0].boxers;
+			this.viewers = this.numberWithCommas(this.card.viewers);
+		},
+		numberWithCommas: function numberWithCommas(x) {
+			var parts = x.toString().split(".");
+			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			return parts.join(".");
+		}
+	}
+});
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('section', {
+    staticClass: "hero"
+  }, [_c('div', {
+    staticClass: "hero-body"
+  }, [_c('div', {
+    staticClass: "container"
+  }, [_c('h1', {
+    staticClass: "title"
+  }, [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.network.name) + "\n\t\t\t\t")]), _vm._v(" "), _c('h2', {
+    staticClass: "subtitle"
+  }, [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.card.date) + "\n\t\t\t\t")])])])]), _vm._v(" "), _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "notification"
+  }, [_c('p', {
+    staticClass: "title is-3"
+  }, [_vm._v("Location")]), _vm._v(" "), _c('p', {
+    staticClass: "subtitle is-5"
+  }, [_vm._v(_vm._s(_vm.location.venue) + ", " + _vm._s(_vm.location.city) + ", " + _vm._s(_vm.location.state) + ", " + _vm._s(_vm.location.country))]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('p', {
+    staticClass: "title is-3"
+  }, [_vm._v("Main Event")]), _vm._v(" "), _c('p', {
+    staticClass: "subtitle is-5"
+  }, [_vm._v(_vm._s(_vm.boxers[0].name) + " vs " + _vm._s(_vm.boxers[1].name))]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('p', {
+    staticClass: "title is-3"
+  }, [_vm._v("Promoter")]), _vm._v(" "), _c('p', {
+    staticClass: "subtitle is-5"
+  }, [_vm._v(_vm._s(_vm.promoter.name))]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('p', {
+    staticClass: "title is-3"
+  }, [_vm._v("Viewers")]), _vm._v(" "), _c('p', {
+    staticClass: "subtitle is-5"
+  }, [_vm._v(_vm._s(_vm.viewers))])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-c76b7f26", module.exports)
+  }
+}
+
+/***/ }),
+/* 79 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('h2', [_vm._v("hi")])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-20f578e1", module.exports)
   }
 }
 

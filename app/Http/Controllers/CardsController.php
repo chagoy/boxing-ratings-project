@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Card;
 use App\Fight;
+use App\Network;
+use App\Promoter;
+use App\Location;
 
 use Illuminate\Http\Request;
 
@@ -24,9 +27,21 @@ class CardsController extends Controller
         return compact('cards');
     }
 
-    public function show(Card $card)
+    public function show($network, $date)
     {
-        return compact('card');
+        $network = Network::where(['name' => $network])->first();
+        $card = Card::where(['network_id' => $network->id, 'date' => $date])->first();
+        // dd($card);
+        $promoter = Promoter::where(['id' => $card->promoter_id])->first();
+        $location = Location::where(['id' => $card->location_id])->first();
+        $fight = Fight::where(['card_id' => $card->id])->with('boxers')->get();
+
+        // $collection = new \Illuminate\Database\Eloquent\Collection;
+        // $collection = $collection->merge($network);
+        // dd($collection);
+        // $collection = $collection->merge($card);
+        
+        return compact('card', 'network', 'fight', 'location', 'promoter');
     }
 
     public function store(Request $request)

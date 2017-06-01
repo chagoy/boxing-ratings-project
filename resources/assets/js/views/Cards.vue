@@ -23,7 +23,7 @@
 					.then(this.refreshCards);
 			},
 			refreshCards({data}) {
-				//this.cards = data;
+				this.cards = data;
 				for (var i = 0; i < data.length; i++) {
 					this.cards.push(data[i]);
 				}

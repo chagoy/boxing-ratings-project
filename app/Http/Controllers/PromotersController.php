@@ -21,6 +21,7 @@ class PromotersController extends Controller
 
     public function show(Promoter $promoter)
     {
+        $promoter->load('cards.network');
     	return compact('promoter');
     }
 

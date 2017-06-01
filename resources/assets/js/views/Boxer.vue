@@ -1,7 +1,27 @@
 <template>
 	<div>
-		<h1>{{ boxer.name }}</h1>
-		
+		<section class="hero">
+			<div class="hero-body">
+				<div class="container">
+					<h1 class="title">
+						{{ boxer.name }}
+					</h1>
+					<h2 class="subtitle">
+						{{ promoter.name}}
+					</h2>
+				</div>
+			</div>
+		</section>
+
+		<article class="message" v-for="fight in fights" :key="fight.id" >
+			<div class="message-header">
+				<router-link :to="{ name: 'card', params: { network: fight.card.network.name, date: fight.card.date }}">{{ fight.card.network.name }}</router-link>
+			</div>
+			<div class="message-body">
+				 On {{ fight.card.date }} {{ boxer.name }} pulled in {{fight.card.viewers }} viewers
+			</div>
+			
+		</article>
 	</div>
 </template>
 
@@ -16,7 +36,8 @@
 			return {
 				slug: this.$route.params.boxer,
 				boxer: '',
-				//fights: {}
+				promoter: '',
+				fights: []
 			}
 		},
 
@@ -31,7 +52,10 @@
 			},
 			loadBoxer({data}) {
 				this.boxer = data.boxer;
-				//this.fights = data.boxer.fights;
+				for (var i = 0; i < data.boxer.fights.length; i++) {
+					this.fights.push(data.boxer.fights[i]);
+				}
+				this.promoter = data.promoter;
 			}
 		}
 	}
