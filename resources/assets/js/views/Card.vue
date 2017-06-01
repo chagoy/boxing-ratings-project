@@ -19,8 +19,15 @@
 				<p class="title is-3">Location</p>
 				<p class="subtitle is-5">{{ location.venue }}, {{ location.city }}, {{ location.state }}, {{ location.country }}</p>
 				<hr>
+	
+				<!-- <router-link :to="{ name: 'boxer', params: { boxer: boxer.slug }}">{{ boxer.name }}</router-link> -->
+
 				<p class="title is-3">Main Event</p>
-				<p class="subtitle is-5">{{ boxers[0].name }} vs {{ boxers[1].name }}</p>
+				<p class="subtitle is-5">
+					<router-link :to="{ name: 'boxer', params: { boxer: boxers[0].slug }}">{{ boxers[0].name }}</router-link>
+					vs 
+					<router-link :to="{ name: 'boxer', params: { boxer: boxers[1].slug }}">{{ boxers[1].name }}</router-link>
+				</p>
 				<hr>
 				<p class="title is-3">Promoter</p>
 				<p class="subtitle is-5">{{ promoter.name }}</p>

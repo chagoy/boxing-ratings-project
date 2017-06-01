@@ -31,15 +31,9 @@ class CardsController extends Controller
     {
         $network = Network::where(['name' => $network])->first();
         $card = Card::where(['network_id' => $network->id, 'date' => $date])->first();
-        // dd($card);
         $promoter = Promoter::where(['id' => $card->promoter_id])->first();
         $location = Location::where(['id' => $card->location_id])->first();
         $fight = Fight::where(['card_id' => $card->id])->with('boxers')->get();
-
-        // $collection = new \Illuminate\Database\Eloquent\Collection;
-        // $collection = $collection->merge($network);
-        // dd($collection);
-        // $collection = $collection->merge($card);
         
         return compact('card', 'network', 'fight', 'location', 'promoter');
     }

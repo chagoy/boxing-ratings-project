@@ -32,6 +32,15 @@ let routes = [
 		component: require('./views/Card')
 	},
 	{
+		path: '/locations',
+		component: require('./views/Locations')
+	},
+	{
+		path: '/locations/:venue',
+		name: 'venue',
+		component: require('./views/Location')
+	},
+	{
 		path: '/submit',
 		component: require('./views/Submit')
 	},
