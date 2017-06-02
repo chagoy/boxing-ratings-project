@@ -10,7 +10,7 @@ class LocationsController extends Controller
 {
     public function index()
     {
-    	$locations = Location::get();
+    	$locations = Location::with('cards.network')->get();
 
     	if (request()->wantsJson()) {
     		return $locations;
@@ -37,5 +37,12 @@ class LocationsController extends Controller
     	]);
 
     	return back();
+    }
+
+    public function show($venue)
+    {
+        $location = Location::where(['slug' => $venue])->with('cards.network')->get();
+
+        return compact('location');
     }
 }

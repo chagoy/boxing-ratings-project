@@ -18,12 +18,18 @@ let routes = [
 		name: 'boxer',
 		component: require('./views/Boxer')
 	},
+		{
+		path: '/venue/:venue',
+		name: 'venue',
+		component: require('./views/Location')
+	},
 	{
 		path: '/networks',
 		component: require('./views/Networks')
 	},
 	{
 		path: '/networks/:network',
+		name: 'network',
 		component: require('./views/Network')
 	},
 	{
@@ -34,11 +40,6 @@ let routes = [
 	{
 		path: '/locations',
 		component: require('./views/Locations')
-	},
-	{
-		path: '/locations/:venue',
-		name: 'venue',
-		component: require('./views/Location')
 	},
 	{
 		path: '/submit',

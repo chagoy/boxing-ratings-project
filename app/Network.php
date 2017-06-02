@@ -8,6 +8,11 @@ class Network extends Model
 {
 	protected $fillable = ['name', 'slug'];
 
+	public function getRouteKeyName()
+	{
+		return 'slug';
+	}
+
     public function cards()
     {
     	return $this->hasMany(Card::class);

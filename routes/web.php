@@ -30,6 +30,7 @@ Route::get('/api/boxers/{boxer}', 'BoxersController@show');
 
 Route::get('/api/networks', 'NetworksController@index');
 Route::post('/api/networks', 'NetworksController@store');
+Route::get('/api/networks/{network}', 'NetworksController@show');
 
 Route::get('/api/promoters', 'PromotersController@index');
 Route::get('/api/promoters/{promoter}', 'PromotersController@show');
@@ -37,3 +38,4 @@ Route::post('/api/promoters', 'PromotersController@store');
 
 Route::get('/api/locations', 'LocationsController@index');
 Route::post('/api/locations', 'LocationsController@store');
+Route::get('/api/venue/{venue}', 'LocationsController@show');

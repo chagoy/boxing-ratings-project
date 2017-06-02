@@ -12,4 +12,9 @@ class Location extends Model
     {
     	return $this->hasMany(Card::class);
     }
+
+    public function network()
+    {
+    	return $this->belongsTo(Network::class);
+    }
 }

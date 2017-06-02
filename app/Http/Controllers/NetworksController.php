@@ -32,4 +32,10 @@ class NetworksController extends Controller
 
     	return back();
     }
+
+    public function show(Network $network) 
+    {  
+        $network = $network->where('slug', $network->slug)->with('cards.fights.boxers')->get();
+        return compact('network');
+    }
 }
