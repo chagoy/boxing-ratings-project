@@ -5064,6 +5064,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5073,7 +5096,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	data: function data() {
 		return {
-			network: ''
+			network: '',
+			cards: ''
 		};
 	},
 	created: function created() {
@@ -5089,6 +5113,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var data = _ref.data;
 
 			this.network = data.network[0];
+			this.cards = data.network[0].cards;
 		}
 	}
 
@@ -6151,10 +6176,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "title"
   }, [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.network.name) + "\n\t\t\t\t")]), _vm._v(" "), _c('h2', {
     staticClass: "subtitle"
-  })])])]), _vm._v(" "), _vm._l((_vm.network.cards), function(card) {
-    return _c('ul', [_c('li', [_vm._v("\n\t\t\t" + _vm._s(card.fights.boxers) + "\n\t\t")])])
-  })], 2)
-},staticRenderFns: []}
+  }, [_vm._v("\n\t\t\t\t\tDamn\n\t\t\t\t")])])])]), _vm._v(" "), _c('table', {
+    staticClass: "table"
+  }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.cards), function(card) {
+    return _c('tr', [_c('td', [_vm._v("\n\t\t\t\t\t" + _vm._s(card.date) + "\n\t\t\t\t")]), _vm._v(" "), _c('td', [_vm._v("\n\t\t\t\t\tvenue\n\t\t\t\t")]), _vm._v(" "), _c('td', [_vm._v("\n\t\t\t\t\t" + _vm._s(card.fights[0].boxers[0].name) + " vs " + _vm._s(card.fights[0].boxers[1].name) + "\n\t\t\t\t")]), _vm._v(" "), _c('td', [_vm._v(" \n\t\t\t\t\t" + _vm._s(_vm.numberWithCommas(card.viewers)) + "\n\t\t\t\t")])])
+  }))])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Date")]), _vm._v(" "), _c('th', [_vm._v("Venue")]), _vm._v(" "), _c('th', [_vm._v("Headline")]), _vm._v(" "), _c('th', [_vm._v("Viewers")])])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

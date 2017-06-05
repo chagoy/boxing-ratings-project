@@ -36,6 +36,9 @@ class NetworksController extends Controller
     public function show(Network $network) 
     {  
         $network = $network->where('slug', $network->slug)->with('cards.fights.boxers')->get();
+        $new = $network->cards->sortByDesc('date');
+
+        dd($new);
         return compact('network');
     }
 }

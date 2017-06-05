@@ -7,16 +7,39 @@
 						{{ network.name }}
 					</h1>
 					<h2 class="subtitle">
-						
+						Damn
 					</h2>
 				</div>
 			</div>
 		</section>
-		<ul v-for="card in network.cards">
-			<li>
-				{{ card.fights.boxers }}
-			</li>
-		</ul>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Venue</th>
+					<th>Headline</th>
+					<th>Viewers</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="card in cards">
+					<td>
+						{{ card.date }}
+					</td>
+					<td>
+						venue
+					</td>
+					<td>
+						{{ card.fights[0].boxers[0].name }} vs {{ card.fights[0].boxers[1].name }}
+					</td>
+					<td> 
+						{{ numberWithCommas(card.viewers) }}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
 	</div>
 </template>
 
@@ -29,7 +52,8 @@
 
 		data() {
 			return {
-				network: ''
+				network: '',
+				cards: ''
 			}
 		},
 
@@ -45,6 +69,7 @@
 
 			fill({data}) {
 				this.network = data.network[0];
+				this.cards = data.network[0].cards;
 			}
 		}
 
