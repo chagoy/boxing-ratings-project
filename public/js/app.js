@@ -482,6 +482,27 @@ module.exports = {
 			var parts = x.toString().split(".");
 			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			return parts.join(".");
+		},
+		averageViewers: function averageViewers(cards) {
+			var sum = 0;
+			for (var i = 0; i < cards.length; i++) {
+				sum += parseInt(cards[i], 10);
+			}
+			return this.numberWithCommas(Math.round(sum / cards.length));
+		},
+		highestCard: function highestCard(cards) {
+			var viewers = [];
+			for (var i = 0; i < cards.length; i++) {
+				viewers.push(cards[i]);
+			}
+			return this.numberWithCommas(Math.max.apply(Math, viewers));
+		},
+		lowestCard: function lowestCard(cards) {
+			var viewers = [];
+			for (var i = 0; i < cards.length; i++) {
+				viewers.push(cards[i]);
+			}
+			return this.numberWithCommas(Math.min.apply(Math, viewers));
 		}
 	}
 
@@ -4716,6 +4737,57 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4728,13 +4800,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			slug: this.$route.params.boxer,
 			boxer: '',
 			promoter: '',
-			fights: []
+			fights: [],
+			viewersArray: []
 		};
 	},
 	created: function created() {
 		this.fetch(this.slug);
 	},
 
+
+	watch: {
+		'$route': function $route(to, from) {
+			this.fetch(this.$route.params.boxer);
+		}
+	},
 
 	methods: {
 		fetch: function fetch(boxer) {
@@ -4748,6 +4827,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				this.fights.push(data.boxer.fights[i]);
 			}
 			this.promoter = data.promoter;
+
+			this.createViewersArray(this.fights);
+		},
+		createViewersArray: function createViewersArray(x) {
+			var array = [];
+			for (var i = 0; i < x.length; i++) {
+				array.push(x[i].card.viewers);
+			}
+			return this.viewersArray = array;
 		}
 	}
 });
@@ -4853,6 +4941,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
@@ -4863,6 +4964,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4880,6 +4992,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_collection__ = __webpack_require__(2);
+//
+//
+//
+//
 //
 //
 //
@@ -4954,7 +5070,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_collection__ = __webpack_require__(2);
-//
 //
 //
 //
@@ -5087,6 +5202,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5097,7 +5235,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	data: function data() {
 		return {
 			network: '',
-			cards: ''
+			cards: '',
+			viewersArray: []
 		};
 	},
 	created: function created() {
@@ -5114,6 +5253,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.network = data.network[0];
 			this.cards = data.network[0].cards;
+			this.createViewersArray(this.cards);
+		},
+		createViewersArray: function createViewersArray(cards) {
+			var array = [];
+			for (var i = 0; i < cards.length; i++) {
+				array.push(cards[i].viewers);
+			}
+			this.viewersArray = array;
 		}
 	}
 
@@ -5126,9 +5273,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_collection__ = __webpack_require__(2);
-//
-//
-//
 //
 //
 //
@@ -5176,63 +5320,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_collection__ = __webpack_require__(2);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -5388,8 +5475,15 @@ var routes = [{
 	path: '/',
 	component: __webpack_require__(56)
 }, {
+	path: '/about',
+	component: __webpack_require__(87)
+}, {
 	path: '/promoters',
 	component: __webpack_require__(61)
+}, {
+	path: '/promoters/:promoter',
+	name: 'promoter',
+	component: __webpack_require__(85)
 }, {
 	path: '/boxers',
 	component: __webpack_require__(9)
@@ -6102,9 +6196,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "tabs is-centered"
-  }, _vm._l((_vm.networks), function(network) {
+  return _c('div', _vm._l((_vm.networks), function(network) {
     return _c('ul', [_c('li', [_c('router-link', {
       attrs: {
         "tag": "a",
@@ -6148,7 +6240,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           }
         }
       }
-    }, [_vm._v(_vm._s(card.date))])], 1), _vm._v(" "), _c('td', [_vm._v("\n\t\t\t\t\t" + _vm._s(card.network.name) + "\n\t\t\t\t")]), _vm._v(" "), _c('td', [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.numberWithCommas(card.viewers)) + "\n\t\t\t\t")])])
+    }, [_vm._v("\n\t\t\t\t\t\t" + _vm._s(card.date) + "\n\t\t\t\t\t")])], 1), _vm._v(" "), _c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'network',
+          params: {
+            network: card.network.slug
+          }
+        }
+      }
+    }, [_vm._v("\n\t\t\t\t\t\t" + _vm._s(card.network.name) + "\n\t\t\t\t\t")])], 1), _vm._v(" "), _c('td', [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.numberWithCommas(card.viewers)) + "\n\t\t\t\t")])])
   }))])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('thead', [_c('tr', [_c('th', [_vm._v("Date")]), _vm._v(" "), _c('th', [_vm._v("Network")]), _vm._v(" "), _c('th', [_vm._v("Viewers")])])])
@@ -6174,15 +6275,67 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "container"
   }, [_c('h1', {
     staticClass: "title"
-  }, [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.network.name) + "\n\t\t\t\t")]), _vm._v(" "), _c('h2', {
-    staticClass: "subtitle"
-  }, [_vm._v("\n\t\t\t\t\tDamn\n\t\t\t\t")])])])]), _vm._v(" "), _c('table', {
-    staticClass: "table"
+  }, [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.network.name) + "\n\t\t\t\t")])])])]), _vm._v(" "), _c('section', [_c('nav', {
+    staticClass: "level"
+  }, [_c('div', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('div', [_c('p', {
+    staticClass: "heading"
+  }, [_vm._v("High")]), _vm._v(" "), _c('p', {
+    staticClass: "title"
+  }, [_vm._v(_vm._s(_vm.highestCard(_vm.viewersArray)))])])]), _vm._v(" "), _c('div', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('div', [_c('p', {
+    staticClass: "heading"
+  }, [_vm._v("Low")]), _vm._v(" "), _c('p', {
+    staticClass: "title"
+  }, [_vm._v(_vm._s(_vm.lowestCard(_vm.viewersArray)))])])]), _vm._v(" "), _c('div', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('div', [_c('p', {
+    staticClass: "heading"
+  }, [_vm._v("Average")]), _vm._v(" "), _c('p', {
+    staticClass: "title"
+  }, [_vm._v(_vm._s(_vm.averageViewers(_vm.viewersArray)))])])]), _vm._v(" "), _c('div', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('div', [_c('p', {
+    staticClass: "heading"
+  }, [_vm._v("# of Cards in db")]), _vm._v(" "), _c('p', {
+    staticClass: "title"
+  }, [_vm._v(_vm._s(_vm.cards.length))])])])])]), _vm._v(" "), _c('table', {
+    staticClass: "table is-striped is-narrow"
   }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.cards), function(card) {
-    return _c('tr', [_c('td', [_vm._v("\n\t\t\t\t\t" + _vm._s(card.date) + "\n\t\t\t\t")]), _vm._v(" "), _c('td', [_vm._v("\n\t\t\t\t\tvenue\n\t\t\t\t")]), _vm._v(" "), _c('td', [_vm._v("\n\t\t\t\t\t" + _vm._s(card.fights[0].boxers[0].name) + " vs " + _vm._s(card.fights[0].boxers[1].name) + "\n\t\t\t\t")]), _vm._v(" "), _c('td', [_vm._v(" \n\t\t\t\t\t" + _vm._s(_vm.numberWithCommas(card.viewers)) + "\n\t\t\t\t")])])
+    return _c('tr', [_c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'card',
+          params: {
+            network: _vm.network.name,
+            date: card.date
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.date))])], 1), _vm._v(" "), _c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'boxer',
+          params: {
+            boxer: card.fights[0].boxers[0].slug
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.fights[0].boxers[0].name))]), _vm._v("\n\t\t\t\t\tvs \n\t\t\t\t\t"), _c('router-link', {
+      attrs: {
+        "to": {
+          name: 'boxer',
+          params: {
+            boxer: card.fights[0].boxers[1].slug
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.fights[0].boxers[1].name))])], 1), _vm._v(" "), _c('td', [_vm._v(" \n\t\t\t\t\t" + _vm._s(_vm.numberWithCommas(card.viewers)) + "\n\t\t\t\t")])])
   }))])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("Date")]), _vm._v(" "), _c('th', [_vm._v("Venue")]), _vm._v(" "), _c('th', [_vm._v("Headline")]), _vm._v(" "), _c('th', [_vm._v("Viewers")])])])
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Date")]), _vm._v(" "), _c('th', [_vm._v("Headline")]), _vm._v(" "), _c('th', [_vm._v("Viewers")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -6585,27 +6738,77 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "title"
   }, [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.boxer.name) + "\n\t\t\t\t")]), _vm._v(" "), _c('h2', {
     staticClass: "subtitle"
-  }, [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.promoter.name) + "\n\t\t\t\t")])])])]), _vm._v(" "), _vm._l((_vm.fights), function(fight) {
-    return _c('article', {
-      key: fight.id,
-      staticClass: "message"
-    }, [_c('div', {
-      staticClass: "message-header"
-    }, [_c('router-link', {
+  }, [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.promoter.name) + "\n\t\t\t\t")])])])]), _vm._v(" "), _c('section', {}, [_c('nav', {
+    staticClass: "level"
+  }, [_c('div', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('div', [_c('p', {
+    staticClass: "heading"
+  }, [_vm._v("High")]), _vm._v(" "), _c('p', {
+    staticClass: "title"
+  }, [_vm._v(_vm._s(_vm.highestCard(_vm.viewersArray)))])])]), _vm._v(" "), _c('div', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('div', [_c('p', {
+    staticClass: "heading"
+  }, [_vm._v("Low")]), _vm._v(" "), _c('p', {
+    staticClass: "title"
+  }, [_vm._v(_vm._s(_vm.lowestCard(_vm.viewersArray)))])])]), _vm._v(" "), _c('div', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('div', [_c('p', {
+    staticClass: "heading"
+  }, [_vm._v("Average")]), _vm._v(" "), _c('p', {
+    staticClass: "title"
+  }, [_vm._v(_vm._s(_vm.averageViewers(_vm.viewersArray)))])])]), _vm._v(" "), _c('div', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('div', [_c('p', {
+    staticClass: "heading"
+  }, [_vm._v("# of Cards in db")]), _vm._v(" "), _c('p', {
+    staticClass: "title"
+  }, [_vm._v(_vm._s(_vm.fights.length))])])])])]), _vm._v(" "), _c('table', {
+    staticClass: "table"
+  }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.fights), function(fight) {
+    return _c('tr', [_c('td', [_c('router-link', {
       attrs: {
         "to": {
           name: 'card',
           params: {
-            network: fight.card.network.name,
+            network: fight.card.network.slug,
             date: fight.card.date
           }
         }
       }
-    }, [_vm._v(_vm._s(fight.card.network.name))])], 1), _vm._v(" "), _c('div', {
-      staticClass: "message-body"
-    }, [_vm._v("\n\t\t\t On " + _vm._s(fight.card.date) + " " + _vm._s(_vm.boxer.name) + " pulled in " + _vm._s(fight.card.viewers) + " viewers\n\t\t")])])
-  })], 2)
-},staticRenderFns: []}
+    }, [_vm._v(_vm._s(fight.card.date))])], 1), _vm._v(" "), _c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'network',
+          params: {
+            network: fight.card.network.slug
+          }
+        }
+      }
+    }, [_vm._v("\n\t\t\t\t\t\t" + _vm._s(fight.card.network.name) + "\n\t\t\t\t\t")])], 1), _vm._v(" "), _c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'boxer',
+          params: {
+            boxer: fight.boxers[0].slug
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(fight.boxers[0].name))]), _vm._v("\n\t\t\t\t\tvs\n\t\t\t\t\t"), _c('router-link', {
+      attrs: {
+        "to": {
+          name: 'boxer',
+          params: {
+            boxer: fight.boxers[1].slug
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(fight.boxers[1].name))])], 1), _vm._v(" "), _c('td', [_vm._v(" \n\t\t\t\t\t" + _vm._s(_vm.numberWithCommas(fight.card.viewers)) + "\n\t\t\t\t")])])
+  }))])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Date")]), _vm._v(" "), _c('th', [_vm._v("Network")]), _vm._v(" "), _c('th', [_vm._v("Headline")]), _vm._v(" "), _c('th', [_vm._v("Viewers")])])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -7030,21 +7233,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('h1', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.locations),
-      expression: "locations"
-    }],
-    model: {
-      value: (_vm.locations),
-      callback: function($$v) {
-        _vm.locations = $$v
-      },
-      expression: "locations"
-    }
-  }, [_vm._v("Venues, Cities, States, and Countries")]), _vm._v(" "), _c('table', {
+  return _c('div', [_c('table', {
     staticClass: "table"
   }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.locations), function(location) {
     return _c('tbody', [_c('td', [_c('router-link', {
@@ -7090,8 +7279,27 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('h1', [_vm._v("Hi you are on the home page")])
-},staticRenderFns: []}
+  return _vm._m(0)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "columns"
+  }, [_c('div', {
+    staticClass: "column is-three-quarters"
+  }, [_c('h1', {
+    staticClass: "title"
+  }, [_vm._v("Too Much Talking")]), _vm._v(" "), _c('h3', {
+    staticClass: "subtitle"
+  }, [_vm._v("As far back as I can remember boxing has been dying a slow death. What better way to determine the health of the sport than a tool which could serve as the equivalent of a doctor checking the vital signs. This is not complete, the database will take time to populate (it's all done manually through hard work and dedication), and it will evolve over time with cool things like graphs and charts and other 21st century stuff that eludes the sport we love.")])]), _vm._v(" "), _c('div', {
+    staticClass: "column is-one-quarter"
+  }, [_c('img', {
+    attrs: {
+      "src": "http://i.imgur.com/nlcHl.png",
+      "alt": "boxing is fucking dead"
+    }
+  })])])])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -7168,8 +7376,29 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('h1', [_vm._v("Hi you are on the contact page")])
-},staticRenderFns: []}
+  return _vm._m(0)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('div', {
+    staticClass: "notification"
+  }, [_vm._v("\n\t\t\tIf you'd like to contribute, make suggestions, give feedback, or engage in a boxing discussion around ratings there are multiple ways to do that. You can "), _c('strong', [_c('a', {
+    attrs: {
+      "href": "mailto:sundaypuncherboxing@gmail.com?Subject=Boxing:",
+      "target": "_top"
+    }
+  }, [_vm._v("email me")])]), _vm._v(" in the traditional sense. You can also join our Slack chat, but to do that you'll need to email me so I can send you an invite. \n\t\t")]), _vm._v(" "), _c('section', {
+    staticClass: "hero is-primary"
+  }, [_c('div', {
+    staticClass: "hero-body"
+  }, [_c('div', {
+    staticClass: "container"
+  }, [_c('p', [_c('strong', [_vm._v("Support us!")]), _vm._v(" Check out our "), _c('span', {
+    staticClass: "tag is-dark"
+  }, [_c('a', {
+    attrs: {
+      "href": "https://www.patreon.com/user?u=5007649"
+    }
+  }, [_vm._v("Patreon page")])]), _vm._v(" and help us out. Pay what you like and get cool stuff.\n\t\t\t\t\t")])])])])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -7183,98 +7412,20 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('div', {
-    staticClass: "tabs is-centered"
-  }, _vm._l((_vm.promoters), function(promoter) {
-    return _c('ul', [_c('li', [_c('a', {
+  return _c('div', _vm._l((_vm.promoters), function(promoter) {
+    return _c('ul', [_c('li', [_c('router-link', {
       attrs: {
-        "href": promoter.slug
-      },
-      on: {
-        "click": function($event) {
-          $event.preventDefault();
-          _vm.promoterInfo(promoter.slug)
-        }
-      }
-    }, [_vm._v(_vm._s(promoter.name))])])])
-  })), _vm._v(" "), _c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.promoter_data),
-      expression: "promoter_data"
-    }]
-  }, [_c('section', {
-    staticClass: "hero"
-  }, [_c('div', {
-    staticClass: "hero-body"
-  }, [_c('div', {
-    staticClass: "container"
-  }, [_c('h1', {
-    staticClass: "title"
-  }, [_vm._v("\n\t\t\t\t\t\t\t" + _vm._s(_vm.promoter_data.name) + "\n\t\t\t\t\t\t")]), _vm._v(" "), _c('h2', {
-    staticClass: "subtitle"
-  }, [_vm._v("\n\t\t\t\t\t\t\t" + _vm._s(_vm.promoter_data.name) + "\n\t\t\t\t\t\t")])])])]), _vm._v(" "), _c('div', {
-    staticClass: "container"
-  }, [_c('h1', [_vm._v("List of boxers currently signed with " + _vm._s(_vm.promoter_data.name))]), _vm._v(" "), _c('table', {
-    staticClass: "table"
-  }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.boxers), function(boxer) {
-    return _c('tbody', [_c('td', [_c('router-link', {
-      attrs: {
+        "tag": "a",
         "to": {
-          name: 'boxer',
+          name: 'promoter',
           params: {
-            boxer: boxer.slug
+            promoter: promoter.slug
           }
         }
       }
-    }, [_vm._v(_vm._s(boxer.name))])], 1)])
-  })], 2), _vm._v(" "), _c('h1', [_vm._v("List of cards promoted by " + _vm._s(_vm.promoter_data.name))]), _vm._v(" "), _c('table', {
-    staticClass: "table"
-  }, [_vm._m(1), _vm._v(" "), _vm._l((_vm.cards), function(card) {
-    return _c('tbody', [_c('td', [_c('router-link', {
-      attrs: {
-        "to": {
-          name: 'card',
-          params: {
-            network: card.network.name,
-            date: card.date
-          }
-        }
-      }
-    }, [_vm._v(_vm._s(card.network.name))])], 1), _vm._v(" "), _c('td', [_c('router-link', {
-      attrs: {
-        "to": {
-          name: 'card',
-          params: {
-            network: card.network.name,
-            date: card.date
-          }
-        }
-      }
-    }, [_vm._v(_vm._s(card.date))])], 1), _vm._v(" "), _c('td', [_vm._v("\n\t\t\t\t\t\t\t" + _vm._s(card.viewers) + "\n\t\t\t\t\t\t")])])
-  })], 2)])])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_c('abbr', {
-    attrs: {
-      "title": "Name"
-    }
-  }, [_vm._v("Name")])])])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_c('abbr', {
-    attrs: {
-      "title": "Network"
-    }
-  }, [_vm._v("Network")])]), _vm._v(" "), _c('th', [_c('abbr', {
-    attrs: {
-      "title": "Date"
-    }
-  }, [_vm._v("Date")])]), _vm._v(" "), _c('th', [_c('abbr', {
-    attrs: {
-      "title": "Date"
-    }
-  }, [_vm._v("Viewers")])])])])
-}]}
+    }, [_vm._v(_vm._s(promoter.name))])], 1)])
+  }))
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -17015,6 +17166,385 @@ module.exports = g;
 __webpack_require__(11);
 module.exports = __webpack_require__(12);
 
+
+/***/ }),
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_collection__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+	mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_collection__["a" /* default */]],
+
+	data: function data() {
+		return {
+			promoter: '',
+			boxers: '',
+			ratings: '',
+			cards: '',
+			viewersArray: []
+		};
+	},
+	created: function created() {
+		this.fetch();
+	},
+
+
+	methods: {
+		fetch: function fetch() {
+			axios.get('/api/promoters/' + this.$route.params.promoter).then(this.fill);
+		},
+		fill: function fill(_ref) {
+			var data = _ref.data;
+
+			this.promoter = data.promoter;
+			this.cards = data.promoter.cards;
+			this.createViewersArray(this.cards);
+		},
+		createViewersArray: function createViewersArray(cards) {
+			var array = [];
+			for (var i = 0; i < cards.length; i++) {
+				array.push(cards[i].viewers);
+			}
+			this.viewersArray = array;
+		}
+	}
+});
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(84),
+  /* template */
+  __webpack_require__(86),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/angelochagoy/code/events/resources/assets/js/views/Promoter.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Promoter.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6fcb628f", Component.options)
+  } else {
+    hotAPI.reload("data-v-6fcb628f", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('section', {
+    staticClass: "hero"
+  }, [_c('div', {
+    staticClass: "hero-body"
+  }, [_c('div', {
+    staticClass: "container"
+  }, [_c('h1', {
+    staticClass: "title"
+  }, [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.promoter.name) + "\n\t\t\t\t")]), _vm._v(" "), _c('h2', {
+    staticClass: "subtitle"
+  }, [_vm._v("\n\t\t\t\t\tDamn\n\t\t\t\t")])])])]), _vm._v(" "), _c('section', [_c('nav', {
+    staticClass: "level"
+  }, [_c('div', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('div', [_c('p', {
+    staticClass: "heading"
+  }, [_vm._v("High")]), _vm._v(" "), _c('p', {
+    staticClass: "title"
+  }, [_vm._v(_vm._s(_vm.highestCard(_vm.viewersArray)))])])]), _vm._v(" "), _c('div', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('div', [_c('p', {
+    staticClass: "heading"
+  }, [_vm._v("Low")]), _vm._v(" "), _c('p', {
+    staticClass: "title"
+  }, [_vm._v(_vm._s(_vm.lowestCard(_vm.viewersArray)))])])]), _vm._v(" "), _c('div', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('div', [_c('p', {
+    staticClass: "heading"
+  }, [_vm._v("Average")]), _vm._v(" "), _c('p', {
+    staticClass: "title"
+  }, [_vm._v(_vm._s(_vm.averageViewers(_vm.viewersArray)))])])]), _vm._v(" "), _c('div', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('div', [_c('p', {
+    staticClass: "heading"
+  }, [_vm._v("# of Cards in db")]), _vm._v(" "), _c('p', {
+    staticClass: "title"
+  }, [_vm._v(_vm._s(_vm.cards.length))])])])])]), _vm._v(" "), _c('table', {
+    staticClass: "table"
+  }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.cards), function(card) {
+    return _c('tr', [_c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'card',
+          params: {
+            network: card.network.name,
+            date: card.date
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.date))])], 1), _vm._v(" "), _c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'network',
+          params: {
+            network: card.network.name,
+            date: card.date
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.network.name))])], 1), _vm._v(" "), _c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'boxer',
+          params: {
+            boxer: card.fights[0].boxers[0].slug
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.fights[0].boxers[0].name))]), _vm._v("\n\t\t\t\t\tvs \n\t\t\t\t\t"), _c('router-link', {
+      attrs: {
+        "to": {
+          name: 'boxer',
+          params: {
+            boxer: card.fights[0].boxers[1].slug
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.fights[0].boxers[1].name))])], 1), _vm._v(" "), _c('td', [_vm._v(" \n\t\t\t\t\t" + _vm._s(_vm.numberWithCommas(card.viewers)) + "\n\t\t\t\t")])])
+  }))])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Date")]), _vm._v(" "), _c('th', [_vm._v("Network")]), _vm._v(" "), _c('th', [_vm._v("Headline")]), _vm._v(" "), _c('th', [_vm._v("Viewers")])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-6fcb628f", module.exports)
+  }
+}
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  null,
+  /* template */
+  __webpack_require__(88),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/angelochagoy/code/events/resources/assets/js/views/About.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] About.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-a340f500", Component.options)
+  } else {
+    hotAPI.reload("data-v-a340f500", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _vm._m(0)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "columns"
+  }, [_c('div', {
+    staticClass: "column is-10 is-offset-1"
+  }, [_c('h1', {
+    staticClass: "title"
+  }, [_vm._v("Questions")]), _vm._v(" "), _c('article', {
+    staticClass: "message"
+  }, [_c('div', {
+    staticClass: "message-header"
+  }, [_c('p', [_vm._v("Where is the data from?")])]), _vm._v(" "), _c('div', {
+    staticClass: "message-body"
+  }, [_vm._v("\n                        All data is from Nielsen Media. Take it with a grain of salt as Nielsen has a very specific method of measuring viewers. Things that have historically not been taken into consideration are DVR views and streaming.\n                    ")])]), _vm._v(" "), _c('article', {
+    staticClass: "message"
+  }, [_c('div', {
+    staticClass: "message-header"
+  }, [_c('p', [_vm._v("I saw a number that is different from what you have here. Who is right?")])]), _vm._v(" "), _c('div', {
+    staticClass: "message-body"
+  }, [_vm._v("\n                             Short answer: we are. Long answer: That's possible and very likely because on another site they are talking about peak viewers or the average viewers for a particular fight. We go by average viewers for the entire telecast. You will notice that lots of outlets will try to pass off whatever number suits their narrative they're trying to get across and don't spotlight the full numbers. We verify the numbers across many sources to ensure that they're all accurate. \n                        ")])]), _vm._v(" "), _c('article', {
+    staticClass: "message"
+  }, [_c('div', {
+    staticClass: "message-header"
+  }, [_c('p', [_vm._v("Why can't Showtime keep up with HBO?")])]), _vm._v(" "), _c('div', {
+    staticClass: "message-body"
+  }, [_vm._v("\n                            Simple. Showtime doesn't have as many subscribers as HBO. When considering each network's ratings, one thing you can do is make a ratio to create a baseline. Another way to say that is to have a level playing field so that you can make fair comparisons between the two.\n                        ")])]), _vm._v(" "), _c('article', {
+    staticClass: "message"
+  }, [_c('div', {
+    staticClass: "message-header"
+  }, [_c('p', [_vm._v("I can't find a particular card!")])]), _vm._v(" "), _c('div', {
+    staticClass: "message-body"
+  }, [_vm._v("\n                            This database is not complete by any means. Finding ratings isn't as easy as going to ratings.com and pulling up a card. There are white whale cards I have where I've searched and searched and could not find any reported number. (Barker-Geale, Frampton-Quigg to name a couple). Over the coming weeks and months we will be adding in a lot of missing cards from the past few years as well as start working our way back to give some historical comparison.\n                        ")])]), _vm._v(" "), _c('article', {
+    staticClass: "message"
+  }, [_c('div', {
+    staticClass: "message-header"
+  }, [_c('p', [_vm._v("Where is the undercard?")])]), _vm._v(" "), _c('div', {
+    staticClass: "message-body"
+  }, [_vm._v("\n                             Undercard fights are coming soon. There's some stuff on the back end that needs sorting and it will take time to add in all the undercards. It's a huge task especially with those Showtime quadruple headers we occasionally get. \n                        ")])]), _vm._v(" "), _c('article', {
+    staticClass: "message"
+  }, [_c('div', {
+    staticClass: "message-header"
+  }, [_c('p', [_vm._v("Why can't I search?")])]), _vm._v(" "), _c('div', {
+    staticClass: "message-body"
+  }, [_vm._v("\n                            Search functionality has not been added in yet and should be in within the coming days. \n                        ")])]), _vm._v(" "), _c('article', {
+    staticClass: "message"
+  }, [_c('div', {
+    staticClass: "message-header"
+  }, [_c('p', [_vm._v("Can I help add in some ratings?")])]), _vm._v(" "), _c('div', {
+    staticClass: "message-body"
+  }, [_vm._v("\n                            Absolutely. If you have some ratings that we don't have, send them in. You can "), _c('a', {
+    attrs: {
+      "href": "mailto:sundaypuncherboxing@gmail.com?subject=Boxing%20Rating",
+      "target": "_top"
+    }
+  }, [_vm._v("email us")]), _vm._v(". Be sure to include the date, venue, network, the time the card started, and who was on it. Obviously we'll be going to BoxRec to double check everything, but it doesn't hurt. Lastly, be sure to include the actual average viewers for the entire card. We don't go by fight because those ratings are sparse. \n                        ")])]), _vm._v(" "), _c('article', {
+    staticClass: "message"
+  }, [_c('div', {
+    staticClass: "message-header"
+  }, [_c('p', [_vm._v("What are your plans for this going forward?")])]), _vm._v(" "), _c('div', {
+    staticClass: "message-body"
+  }, [_vm._v("\n                             We plan to include all the undercard fights that were televised for the cards. Other things include more visual and graphical things like charts and graphs. This is currently planned but will require a bit more tooling before it is unleashed. Other wishlist items include descriptions, results, a comparison tool (for fighters, networks, promoters, etc.), and more. "), _c('a', {
+    attrs: {
+      "href": "mailto:sundaypuncherboxing@gmail.com?subject=Boxing%20Suggestion",
+      "target": "_top"
+    }
+  }, [_vm._v("Let us know")]), _vm._v(" what you'd like to see.\n                        ")])]), _vm._v(" "), _c('article', {
+    staticClass: "message"
+  }, [_c('div', {
+    staticClass: "message-header"
+  }, [_c('p', [_vm._v("How did you make this site?")])]), _vm._v(" "), _c('div', {
+    staticClass: "message-body"
+  }, [_vm._v("\n                             Laravel on the back end. Vue on the front. \n                        ")])])])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-a340f500", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -10,7 +10,7 @@ class BoxersController extends Controller
 {
     public function index()
     {
-    	$boxers = Boxer::with('fights')->get();
+    	$boxers = Boxer::with('fights')->orderBy('name')->get();
 
     	if (request()->wantsJson()) {
     		return $boxers;
@@ -39,7 +39,8 @@ class BoxersController extends Controller
 
     public function show(Boxer $boxer)
     {
-        $boxer->load('fights.card.network');
+
+        $boxer->load('fights.boxers', 'fights.card.network')->get();
 
         $promoter = Promoter::where('id', $boxer->promoter_id)->first();
 

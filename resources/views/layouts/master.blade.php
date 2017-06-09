@@ -21,13 +21,12 @@
 
         <section class="section">
             <div class="container">
-                <router-view></router-view>                
+                <router-view :key="$route.fullPath"></router-view>                
             </div>
         </section>
-
     
     </div>
-
+    @include ('layouts.footer')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

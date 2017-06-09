@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<h1 v-show="locations" v-model="locations">Venues, Cities, States, and Countries</h1>
 		
 		<table class="table">
 			<thead>

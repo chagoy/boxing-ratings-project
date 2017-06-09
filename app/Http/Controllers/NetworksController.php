@@ -10,7 +10,7 @@ class NetworksController extends Controller
 {
     public function index()
     {
-    	$networks = Network::get();
+    	$networks = Network::orderBy('name')->get();
 
     	if (request()->wantsJson()) {
     		return $networks;
@@ -35,10 +35,11 @@ class NetworksController extends Controller
 
     public function show(Network $network) 
     {  
-        $network = $network->where('slug', $network->slug)->with('cards.fights.boxers')->get();
-        $new = $network->cards->sortByDesc('date');
+        $network = $network->where('slug', $network->slug)->with(['cards' => function ($query) {
+            $query->orderBy('date', 'desc');
+            }, 'cards.fights.boxers'])
+            ->get();
 
-        dd($new);
         return compact('network');
     }
 }

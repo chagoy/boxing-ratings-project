@@ -8,9 +8,14 @@ use Illuminate\Http\Request;
 
 class PromotersController extends Controller
 {
+    // $network = $network->where('slug', $network->slug)->with(['cards' => function ($query) {
+    //         $query->orderBy('date', 'desc');
+    //         }, 'cards.fights.boxers'])
+    //         ->get();
+
     public function index()
     {
-    	$promoters = Promoter::get();
+    	$promoters = Promoter::orderBy('name')->get();
 
     	if (request()->wantsJson()) {
     		return $promoters;
@@ -21,7 +26,10 @@ class PromotersController extends Controller
 
     public function show(Promoter $promoter)
     {
-        $promoter->load('cards.network');
+        $promoter->load(['cards' => function ($query) {
+            $query->orderBy('date', 'desc');
+        }, 'cards.fights.boxers'])->get();
+        
     	return compact('promoter');
     }
 

@@ -1,14 +1,11 @@
 <template>
-	
-	<div class="tabs is-centered">
-
-				<ul v-for="network in networks">
+		<div>
+			<ul v-for="network in networks">
 					<li>
 						<router-link tag="a" :to="{ name: 'network', params: { network: network.slug }}">{{ network.name }}</router-link>
 					</li>
 				</ul>
-
-			</div>
+		</div>
 
 </template>
 

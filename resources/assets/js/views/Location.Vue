@@ -19,10 +19,14 @@
 			<tbody>
 				<tr v-for="card in cards">
 					<td>
-						<router-link :to="{ name: 'card', params: {network: card.network.slug, date: card.date }}">{{ card.date }}</router-link>
+						<router-link :to="{ name: 'card', params: { network: card.network.slug, date: card.date }}">
+							{{ card.date }}
+						</router-link>
 					</td>
 					<td>
-						{{ card.network.name }}
+						<router-link :to="{ name: 'network', params: { network: card.network.slug }}">
+							{{ card.network.name }}
+						</router-link>
 					</td>
 					<td>
 						{{ numberWithCommas(card.viewers) }}

@@ -8,6 +8,8 @@ class Card extends Model
 {
     protected $guarded = [];
 
+    protected $with = ['network'];
+
 	public function fights()
 	{
 		return $this->hasMany(Fight::class);

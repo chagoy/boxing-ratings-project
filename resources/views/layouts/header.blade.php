@@ -1,47 +1,13 @@
-<section class="hero is-primary is-small">
-  <!-- Hero header: will stick at the top -->
-  <div class="hero-head">
-    <header class="nav">
-      <div class="container">
-        <div class="nav-left">
-          Boxing
-        </div>
-        <span class="nav-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-        <div class="nav-right nav-menu">
-          <a class="nav-item is-active">
-            Home
-          </a>
-          <a class="nav-item">
-            Examples
-          </a>
-          <a class="nav-item">
-            Documentation
-          </a>
-          <span class="nav-item">
-            <a class="button is-primary is-inverted">
-              <span class="icon">
-                <i class="fa fa-github"></i>
-              </span>
-              <span>Download</span>
-            </a>
-          </span>
-        </div>
-      </div>
-    </header>
-  </div>
+<section class="hero is-dark is-small">
 
   <!-- Hero content: will be in the middle -->
   <div class="hero-body">
     <div class="container has-text-centered">
       <h1 class="title">
-        Boxing
+        Boxing Ratings Database
       </h1>
       <h2 class="subtitle">
-        Subtitle
+        The Numbers Don't Lie (unless they're reported by Rick Glazer)
       </h2>
     </div>
   </div>

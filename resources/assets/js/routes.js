@@ -6,8 +6,17 @@ let routes = [
 		component: require('./views/Home')
 	},
 	{
+		path: '/about',
+		component: require('./views/About')
+	},
+	{
 		path: '/promoters',
 		component: require('./views/Promoters')
+	},
+	{
+		path: '/promoters/:promoter',
+		name: 'promoter',
+		component: require('./views/Promoter')
 	},
 	{
 		path: '/boxers',
