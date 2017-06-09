@@ -21,6 +21,14 @@
                         </article>
                     <article class="message">
                             <div class="message-header">
+                                <p>Where are the pay-per-view numbers?</p>
+                            </div>
+                            <div class="message-body">
+                                 They are coming in soon. The thinking hasn't been done yet to implement them. Plus, there are other things we want to add in when it comes to pay-per-view like ticket sales and attendance. Those numbers haven't been gathered yet.
+                            </div>
+                        </article>
+                    <article class="message">
+                            <div class="message-header">
                                 <p>Why can't Showtime keep up with HBO?</p>
                             </div>
                             <div class="message-body">
@@ -64,7 +72,7 @@
                                 <p>What are your plans for this going forward?</p>
                             </div>
                             <div class="message-body">
-                                 We plan to include all the undercard fights that were televised for the cards. Other things include more visual and graphical things like charts and graphs. This is currently planned but will require a bit more tooling before it is unleashed. Other wishlist items include descriptions, results, a comparison tool (for fighters, networks, promoters, etc.), and more. <a href="mailto:sundaypuncherboxing@gmail.com?subject=Boxing%20Suggestion" target="_top">Let us know</a> what you'd like to see.
+                                 We plan to include all the undercard fights that were televised for the cards. Other things include more visual and graphical things like charts and graphs. This is currently planned but will require a bit more tooling before it is unleashed. Other wishlist items include descriptions, results, a comparison tool (for fighters, networks, promoters, etc.), pay-per-view numbers, financial information, and more. <a href="mailto:sundaypuncherboxing@gmail.com?subject=Boxing%20Suggestion" target="_top">Let us know</a> what you'd like to see.
                             </div>
                         </article>
                         <article class="message">

@@ -17488,6 +17488,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "message"
   }, [_c('div', {
     staticClass: "message-header"
+  }, [_c('p', [_vm._v("Where are the pay-per-view numbers?")])]), _vm._v(" "), _c('div', {
+    staticClass: "message-body"
+  }, [_vm._v("\n                             They are coming in soon. The thinking hasn't been done yet to implement them. Plus, there are other things we want to add in when it comes to pay-per-view like ticket sales and attendance. Those numbers haven't been gathered yet.\n                        ")])]), _vm._v(" "), _c('article', {
+    staticClass: "message"
+  }, [_c('div', {
+    staticClass: "message-header"
   }, [_c('p', [_vm._v("Why can't Showtime keep up with HBO?")])]), _vm._v(" "), _c('div', {
     staticClass: "message-body"
   }, [_vm._v("\n                            Simple. Showtime doesn't have as many subscribers as HBO. When considering each network's ratings, one thing you can do is make a ratio to create a baseline. Another way to say that is to have a level playing field so that you can make fair comparisons between the two.\n                        ")])]), _vm._v(" "), _c('article', {
@@ -17525,7 +17531,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "message-header"
   }, [_c('p', [_vm._v("What are your plans for this going forward?")])]), _vm._v(" "), _c('div', {
     staticClass: "message-body"
-  }, [_vm._v("\n                             We plan to include all the undercard fights that were televised for the cards. Other things include more visual and graphical things like charts and graphs. This is currently planned but will require a bit more tooling before it is unleashed. Other wishlist items include descriptions, results, a comparison tool (for fighters, networks, promoters, etc.), and more. "), _c('a', {
+  }, [_vm._v("\n                             We plan to include all the undercard fights that were televised for the cards. Other things include more visual and graphical things like charts and graphs. This is currently planned but will require a bit more tooling before it is unleashed. Other wishlist items include descriptions, results, a comparison tool (for fighters, networks, promoters, etc.), pay-per-view numbers, financial information, and more. "), _c('a', {
     attrs: {
       "href": "mailto:sundaypuncherboxing@gmail.com?subject=Boxing%20Suggestion",
       "target": "_top"
