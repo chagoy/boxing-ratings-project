@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index');
 
 //API STUFF
 Route::post('/api/card', 'CardsController@store');
@@ -39,3 +39,7 @@ Route::post('/api/promoters', 'PromotersController@store');
 Route::get('/api/locations', 'LocationsController@index');
 Route::post('/api/locations', 'LocationsController@store');
 Route::get('/api/venue/{venue}', 'LocationsController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -10,6 +10,13 @@
             <router-link tag="li" to="/locations"><a>Locations</a></router-link>
             <router-link tag="li" to="/submit"><a>Submit</a></router-link>
             <router-link tag="li" to="/contact"><a>Contact</a></router-link>
+              @if (! Auth::check())
+                  <li><a href="{{ url('/login') }}">Login</a></li>
+                  {{-- <li><a href="{{ url('/register') }}">Register</a></li> --}}
+              @else 
+                  <li><a href="{{ url('/logout') }}">Logout</a></li>
+              @endif
+            </li>
 
           </ul>
           
