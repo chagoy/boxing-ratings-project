@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -72,5 +72,9 @@
             </div>
         </div>
     </div>
+</div> --}}
+<div class="container">
+    <h1 class="title">No registration at this time</h1>
+    <p>sorry. If you want to join the sunday puncher team and contribute to this project, <a href="sundaypuncherboxing@gmail.com">send me an email</a> @ sundaypuncherboxing@gmail.com</p>
 </div>
 @endsection

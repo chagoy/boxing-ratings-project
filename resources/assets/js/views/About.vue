@@ -12,6 +12,14 @@
                         </div>
                     </article>
                     <article class="message">
+                        <div class="message-header">
+                            <p>Is Premier Boxing Champions a promoter? I thought they weren't? Wasn't there a big lawsuit over this?</p>
+                        </div>
+                        <div class="message-body">
+                            Yeah, actually there was and they won fair and square. In this alpha stage of the project, they are going to be classified as a promoter despite not being a promoter because adding in functionality just for one entity would have caused some unnecessary headache. We plan on adding it in and going back and re-assigning promoters to all of their cards. Sorry to TGB, Warriors, DiBella, Kings, RingStar and any others whose hard work has been essentially ignored (for now) for the sake of ease. You will be added in and get your proper credit in due time. (Although in some cases maybe you don't want to credit.)
+                        </div>
+                    </article>
+                    <article class="message">
                             <div class="message-header">
                                 <p>I saw a number that is different from what you have here. Who is right?</p>
                             </div>

@@ -1,5 +1,4 @@
 <section class="hero is-dark is-small">
-
   <!-- Hero content: will be in the middle -->
   <div class="hero-body">
     <div class="container has-text-centered">
@@ -7,7 +6,7 @@
         Boxing Ratings Database
       </h1>
       <h2 class="subtitle">
-        The Numbers Don't Lie (unless they're reported by Rick Glazer)
+        0.1
       </h2>
     </div>
   </div>

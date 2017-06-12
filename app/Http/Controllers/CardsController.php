@@ -18,12 +18,12 @@ class CardsController extends Controller
 
     public function index()
     {
-        $cards = Card::with('location', 'promoter', 'fights')->get();
+        $cards = Card::with('fights.boxers')->orderBy('viewers', 'desc')->limit(30)->get();
        
         if (request()->wantsJson()) {
             return $cards;
         }
-
+        dd($cards);
         return compact('cards');
     }
 

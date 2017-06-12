@@ -12,6 +12,7 @@ import router from './routes';
 window.Vue = require('vue');
 Vue.use(VueRouter);
 
+Vue.component('boxersearch',require('./components/BoxerSearch.vue'));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

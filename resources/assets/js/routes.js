@@ -57,6 +57,10 @@ let routes = [
 	{
 		path: '/contact',
 		component: require('./views/Contact')
+	},
+	{
+		path: '/top',
+		component: require('./views/Top')
 	}
 	
 ];
@@ -64,6 +68,7 @@ let routes = [
 export default new VueRouter({
 
 	routes,
+	//mode: 'history',
 
 	linkActiveClass: 'is-active'
 

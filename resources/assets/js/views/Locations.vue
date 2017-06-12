@@ -1,7 +1,7 @@
 <template>
 	<div>
 		
-		<table class="table">
+		<table class="table is-stripe is-narrow">
 			<thead>
 				<tr>
 					<th><abbr title="Venue">Venue</abbr></th>

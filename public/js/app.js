@@ -3400,6 +3400,7 @@ __webpack_require__(46);
 window.Vue = __webpack_require__(78);
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
 
+Vue.component('boxersearch', __webpack_require__(166));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -4964,6 +4965,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_BoxerSearch_vue__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_BoxerSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_BoxerSearch_vue__);
 //
 //
 //
@@ -4983,7 +4986,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+	components: { BoxerSearch: __WEBPACK_IMPORTED_MODULE_0__components_BoxerSearch_vue___default.a }
+});
 
 /***/ }),
 /* 40 */
@@ -5515,11 +5520,15 @@ var routes = [{
 }, {
 	path: '/contact',
 	component: __webpack_require__(55)
+}, {
+	path: '/top',
+	component: __webpack_require__(172)
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
 
 	routes: routes,
+	//mode: 'history',
 
 	linkActiveClass: 'is-active'
 
@@ -7234,7 +7243,7 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('table', {
-    staticClass: "table"
+    staticClass: "table is-stripe is-narrow"
   }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.locations), function(location) {
     return _c('tbody', [_c('td', [_c('router-link', {
       attrs: {
@@ -7279,26 +7288,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('div', {
     staticClass: "container"
   }, [_c('div', {
     staticClass: "columns"
-  }, [_c('div', {
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "column is-one-quarter"
+  }, [_c('boxer-search')], 1)])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
     staticClass: "column is-three-quarters"
   }, [_c('h1', {
     staticClass: "title"
   }, [_vm._v("Too Much Talking")]), _vm._v(" "), _c('h3', {
     staticClass: "subtitle"
-  }, [_vm._v("As far back as I can remember boxing has been dying a slow death. What better way to determine the health of the sport than a tool which could serve as the equivalent of a doctor checking the vital signs. This is not complete, the database will take time to populate (it's all done manually through hard work and dedication), and it will evolve over time with cool things like graphs and charts and other 21st century stuff that eludes the sport we love.")])]), _vm._v(" "), _c('div', {
-    staticClass: "column is-one-quarter"
-  }, [_c('img', {
-    attrs: {
-      "src": "http://i.imgur.com/nlcHl.png",
-      "alt": "boxing is fucking dead"
-    }
-  })])])])])
+  }, [_vm._v("As far back as I can remember boxing has been dying a slow death. What better way to determine the health of the sport than a tool which could serve as the equivalent of a doctor checking the vital signs. This is not complete, the database will take time to populate (it's all done manually through hard work and dedication), and it will evolve over time with cool things like graphs and charts and other 21st century stuff that eludes the sport we love.")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -17482,6 +17486,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "message"
   }, [_c('div', {
     staticClass: "message-header"
+  }, [_c('p', [_vm._v("Is Premier Boxing Champions a promoter? I thought they weren't? Wasn't there a big lawsuit over this?")])]), _vm._v(" "), _c('div', {
+    staticClass: "message-body"
+  }, [_vm._v("\n                        Yeah, actually there was and they won fair and square. In this alpha stage of the project, they are going to be classified as a promoter despite not being a promoter because adding in functionality just for one entity would have caused some unnecessary headache. We plan on adding it in and going back and re-assigning promoters to all of their cards. Sorry to TGB, Warriors, DiBella, Kings, RingStar and any others whose hard work has been essentially ignored (for now) for the sake of ease. You will be added in and get your proper credit in due time. (Although in some cases maybe you don't want to credit.)\n                    ")])]), _vm._v(" "), _c('article', {
+    staticClass: "message"
+  }, [_c('div', {
+    staticClass: "message-header"
   }, [_c('p', [_vm._v("I saw a number that is different from what you have here. Who is right?")])]), _vm._v(" "), _c('div', {
     staticClass: "message-body"
   }, [_vm._v("\n                             Short answer: we are. Long answer: That's possible and very likely because on another site they are talking about peak viewers or the average viewers for a particular fight. We go by average viewers for the entire telecast. You will notice that lots of outlets will try to pass off whatever number suits their narrative they're trying to get across and don't spotlight the full numbers. We verify the numbers across many sources to ensure that they're all accurate. \n                        ")])]), _vm._v(" "), _c('article', {
@@ -17549,6 +17559,412 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-a340f500", module.exports)
+  }
+}
+
+/***/ }),
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            query: '',
+            results: []
+        };
+    },
+
+
+    methods: {
+        autoComplete: function autoComplete() {
+            var _this = this;
+
+            this.results = [];
+            if (this.query.length > 2) {
+                axios.get('/boxers', {
+                    params: { query: this.query }
+                }).then(function (response) {
+                    _this.results = response.data;
+                });
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(123),
+  /* template */
+  __webpack_require__(167),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/angelochagoy/code/events/resources/assets/js/components/BoxerSearch.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] BoxerSearch.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7fe531ba", Component.options)
+  } else {
+    hotAPI.reload("data-v-7fe531ba", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 167 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('nav', {
+    staticClass: "panel"
+  }, [_c('p', {
+    staticClass: "panel-heading"
+  }, [_vm._v("Search")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-block"
+  }, [_c('p', {
+    staticClass: "control has-icons-left"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.query),
+      expression: "query"
+    }],
+    staticClass: "input is-small",
+    attrs: {
+      "type": "text",
+      "placeholder": "Search by boxer name..."
+    },
+    domProps: {
+      "value": (_vm.query)
+    },
+    on: {
+      "keyup": _vm.autoComplete,
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.query = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _vm._l((_vm.results), function(result) {
+    return (_vm.results.length) ? _c('div', [_c('router-link', {
+      staticClass: "panel-block",
+      attrs: {
+        "tag": "a",
+        "to": {
+          name: 'boxer',
+          params: {
+            boxer: result.slug
+          }
+        }
+      }
+    }, [_c('span', {
+      staticClass: "panel-icon"
+    }, [_c('i', {
+      staticClass: "fa fa-user"
+    })]), _vm._v("\n                " + _vm._s(result.name) + "\n            ")])], 1) : _vm._e()
+  })], 2)])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "icon is-small is-left"
+  }, [_c('i', {
+    staticClass: "fa fa-search"
+  })])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7fe531ba", module.exports)
+  }
+}
+
+/***/ }),
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(173),
+  /* template */
+  __webpack_require__(174),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/angelochagoy/code/events/resources/assets/js/views/Top.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Top.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1be3ba08", Component.options)
+  } else {
+    hotAPI.reload("data-v-1be3ba08", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 173 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_collection__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+	mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_collection__["a" /* default */]],
+
+	data: function data() {
+		return {
+			cards: ''
+		};
+	},
+	created: function created() {
+		this.fetch();
+	},
+
+
+	methods: {
+		fetch: function fetch() {
+			axios.get('/api/card').then(this.fill);
+		},
+		fill: function fill(_ref) {
+			var data = _ref.data;
+
+			this.cards = data;
+		}
+	}
+});
+
+/***/ }),
+/* 174 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('table', {
+    staticClass: "table is-striped is-narrow"
+  }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.cards), function(card, index) {
+    return _c('tr', [_c('td', [_vm._v("\n\t\t\t\t\t" + _vm._s(index + 1) + "\n\t\t\t\t")]), _vm._v(" "), _c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'card',
+          params: {
+            network: card.network.name,
+            date: card.date
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.date))])], 1), _vm._v(" "), _c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'network',
+          params: {
+            network: card.network.name,
+            date: card.date
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.network.name))])], 1), _vm._v(" "), _c('td', [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'boxer',
+          params: {
+            boxer: card.fights[0].boxers[0].slug
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.fights[0].boxers[0].name))]), _vm._v("\n\t\t\t\t\tvs \n\t\t\t\t\t"), _c('router-link', {
+      attrs: {
+        "to": {
+          name: 'boxer',
+          params: {
+            boxer: card.fights[0].boxers[1].slug
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(card.fights[0].boxers[1].name))])], 1), _vm._v(" "), _c('td', [_vm._v(" \n\t\t\t\t\t" + _vm._s(_vm.numberWithCommas(card.viewers)) + "\n\t\t\t\t")])])
+  }))])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Rank")]), _vm._v(" "), _c('th', [_vm._v("Date")]), _vm._v(" "), _c('th', [_vm._v("Network")]), _vm._v(" "), _c('th', [_vm._v("Headline")]), _vm._v(" "), _c('th', [_vm._v("Viewers")])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-1be3ba08", module.exports)
   }
 }
 

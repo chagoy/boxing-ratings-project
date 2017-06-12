@@ -24,6 +24,8 @@
                 <router-view :key="$route.fullPath"></router-view>                
             </div>
         </section>
+
+        @yield('content')
     
     </div>
     @include ('layouts.footer')

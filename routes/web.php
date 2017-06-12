@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Input;
+use App\Boxer;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get(‘{all}‘, function () {
+//     return view(‘index’);
+// })->where(‘all’, ‘(.*)‘);
 
 Auth::routes();
 
@@ -43,3 +48,9 @@ Route::get('/api/venue/{venue}', 'LocationsController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/boxers', function () {
+	$query = Input::get('query');
+	$boxers = Boxer::where('name', 'like', '%'.$query.'%')->get();
+	return response()->json($boxers);
+});
