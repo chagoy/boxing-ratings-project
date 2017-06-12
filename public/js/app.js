@@ -7300,9 +7300,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "column is-three-quarters"
   }, [_c('h1', {
     staticClass: "title"
-  }, [_vm._v("Too Much Talking")]), _vm._v(" "), _c('h3', {
+  }, [_vm._v("A Database for Viewer Data")]), _vm._v(" "), _c('h3', {
     staticClass: "subtitle"
-  }, [_vm._v("As far back as I can remember boxing has been dying a slow death. What better way to determine the health of the sport than a tool which could serve as the equivalent of a doctor checking the vital signs. This is not complete, the database will take time to populate (it's all done manually through hard work and dedication), and it will evolve over time with cool things like graphs and charts and other 21st century stuff that eludes the sport we love.")])])
+  }, [_vm._v("This site is a resource for finding all the viewer information for boxing on TV. You can search or use the tabs above to see what data is available.")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
