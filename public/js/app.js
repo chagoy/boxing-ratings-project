@@ -5289,6 +5289,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5325,6 +5341,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_collection__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6205,8 +6235,10 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', _vm._l((_vm.networks), function(network) {
-    return _c('ul', [_c('li', [_c('router-link', {
+  return _c('div', [_c('table', {
+    staticClass: "table is-striped"
+  }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.networks), function(network) {
+    return _c('tbody', [_c('td', [_c('router-link', {
       attrs: {
         "tag": "a",
         "to": {
@@ -6216,9 +6248,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           }
         }
       }
-    }, [_vm._v(_vm._s(network.name))])], 1)])
-  }))
-},staticRenderFns: []}
+    }, [_vm._v(_vm._s(network.name))])], 1), _vm._v(" "), _c('td', [_vm._v("\n\t\t\t\t\t" + _vm._s(network.cards.length) + "\n\t\t\t\t")])])
+  })], 2)])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Network")]), _vm._v(" "), _c('th', [_vm._v("# of Cards in DB")])])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -7300,9 +7334,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "column is-three-quarters"
   }, [_c('h1', {
     staticClass: "title"
-  }, [_vm._v("A Database for Viewer Data")]), _vm._v(" "), _c('h3', {
+  }, [_vm._v("A Database for Boxing Viewer Data")]), _vm._v(" "), _c('h3', {
     staticClass: "subtitle"
-  }, [_vm._v("This site is a resource for finding all the viewer information for boxing on TV. You can search or use the tabs above to see what data is available.")])])
+  }, [_vm._v("This site is a resource for finding all viewer information for boxing on TV. You can search or use the tabs above to see what data is available. As of now there is no pay-per-view data (still working it out). You can read more about our plans in the About section.")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -7416,8 +7450,10 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', _vm._l((_vm.promoters), function(promoter) {
-    return _c('ul', [_c('li', [_c('router-link', {
+  return _c('div', [_c('table', {
+    staticClass: "table is-striped"
+  }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.promoters), function(promoter) {
+    return _c('tbody', [_c('td', [_c('router-link', {
       attrs: {
         "tag": "a",
         "to": {
@@ -7427,9 +7463,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           }
         }
       }
-    }, [_vm._v(_vm._s(promoter.name))])], 1)])
-  }))
-},staticRenderFns: []}
+    }, [_vm._v(_vm._s(promoter.name))])], 1), _vm._v(" "), _c('td', [_vm._v("\n\t\t\t\t\t\t" + _vm._s(promoter.boxers.length) + "\n\t\t\t\t\t")]), _vm._v(" "), _c('td', [_vm._v("\n\t\t\t\t\t\t" + _vm._s(promoter.cards.length) + "\n\t\t\t\t\t")])])
+  })], 2)])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Promoter")]), _vm._v(" "), _c('th', [_vm._v("# of Boxers")]), _vm._v(" "), _c('th', [_vm._v("# of Cards in DB")])])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

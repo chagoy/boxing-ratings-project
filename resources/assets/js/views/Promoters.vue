@@ -1,11 +1,25 @@
 <template>
 	<div>
-
-				<ul v-for="promoter in promoters">
-					<li>
-						<router-link tag="a" :to="{ name: 'promoter', params: { promoter: promoter.slug }}">{{ promoter.name }}</router-link>
-					</li>
-				</ul>
+		<table class="table is-striped">
+				<thead>
+					<tr>
+						<th>Promoter</th>
+						<th># of Boxers</th>
+						<th># of Cards in DB</th>
+					</tr>
+				</thead>
+					<tbody v-for="promoter in promoters">
+						<td>
+							<router-link tag="a" :to="{ name: 'promoter', params: { promoter: promoter.slug }}">{{ promoter.name }}</router-link>
+						</td>
+						<td>
+							{{ promoter.boxers.length }}
+						</td>
+						<td>
+							{{ promoter.cards.length }}
+						</td>
+					</tbody>
+			</table>
 	</div>
 	
 </template>

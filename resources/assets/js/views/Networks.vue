@@ -1,10 +1,26 @@
 <template>
 		<div>
-			<ul v-for="network in networks">
+			<table class="table is-striped">
+				<thead>
+					<tr>
+						<th>Network</th>
+						<th># of Cards in DB</th>
+					</tr>
+				</thead>
+					<tbody v-for="network in networks">
+						<td>
+							<router-link tag="a" :to="{ name: 'network', params: { network: network.slug }}">{{ network.name }}</router-link>
+						</td>
+						<td>
+							{{ network.cards.length }}
+						</td>
+					</tbody>
+			</table>
+			<!-- <ul v-for="network in networks">
 					<li>
 						<router-link tag="a" :to="{ name: 'network', params: { network: network.slug }}">{{ network.name }}</router-link>
 					</li>
-				</ul>
+				</ul> -->
 		</div>
 
 </template>

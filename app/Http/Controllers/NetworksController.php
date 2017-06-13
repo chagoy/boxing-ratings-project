@@ -10,7 +10,7 @@ class NetworksController extends Controller
 {
     public function index()
     {
-    	$networks = Network::orderBy('name')->get();
+    	$networks = Network::with('cards')->orderBy('name')->get();
 
     	if (request()->wantsJson()) {
     		return $networks;

@@ -16,12 +16,12 @@ class PromotersController extends Controller
     public function index()
     {
     	$promoters = Promoter::orderBy('name')->get();
-
+        $boxers = Promoter::with('boxers')->get();
     	if (request()->wantsJson()) {
     		return $promoters;
     	}
-        
-    	return compact('promoters');
+
+    	return compact('promoters', 'boxers');
     }
 
     public function show(Promoter $promoter)
