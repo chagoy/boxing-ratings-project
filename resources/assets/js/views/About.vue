@@ -21,6 +21,14 @@
                     </article>
                     <article class="message">
                             <div class="message-header">
+                                <p>Wow, HBO has really high numbers in 2011. What happened?</p>
+                            </div>
+                            <div class="message-body">
+                                Numbers may actually be lower. There are a couple of things going on here. 1, many suspected at the time that HBO was beefing up their numbers and 2, finding full breakdowns of those numbers are little harder than recent cards. What can't be denied is that viewer numbers were indeed higher, but the degree of accuracy in those reported numbers may be up for question.
+                            </div>
+                        </article>
+                    <article class="message">
+                            <div class="message-header">
                                 <p>I saw a number that is different from what you have here. Who is right?</p>
                             </div>
                             <div class="message-body">

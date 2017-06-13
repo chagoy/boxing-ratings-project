@@ -17530,6 +17530,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "message"
   }, [_c('div', {
     staticClass: "message-header"
+  }, [_c('p', [_vm._v("Wow, HBO has really high numbers in 2011. What happened?")])]), _vm._v(" "), _c('div', {
+    staticClass: "message-body"
+  }, [_vm._v("\n                            Numbers may actually be lower. There are a couple of things going on here. 1, many suspected at the time that HBO was beefing up their numbers and 2, finding full breakdowns of those numbers are little harder than recent cards. What can't be denied is that viewer numbers were indeed higher, but the degree of accuracy in those reported numbers may be up for question.\n                        ")])]), _vm._v(" "), _c('article', {
+    staticClass: "message"
+  }, [_c('div', {
+    staticClass: "message-header"
   }, [_c('p', [_vm._v("I saw a number that is different from what you have here. Who is right?")])]), _vm._v(" "), _c('div', {
     staticClass: "message-body"
   }, [_vm._v("\n                             Short answer: we are. Long answer: That's possible and very likely because on another site they are talking about peak viewers or the average viewers for a particular fight. We go by average viewers for the entire telecast. You will notice that lots of outlets will try to pass off whatever number suits their narrative they're trying to get across and don't spotlight the full numbers. We verify the numbers across many sources to ensure that they're all accurate. \n                        ")])]), _vm._v(" "), _c('article', {
