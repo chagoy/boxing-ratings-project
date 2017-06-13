@@ -10,7 +10,7 @@
             <router-link tag="li" to="/locations"><a>Locations</a></router-link>
             <router-link tag="li" to="/top"><a>Most Watched</a></router-link>
             <router-link tag="li" to="/contact"><a>Contact</a></router-link>
-              @if (! Auth::check())
+              @if (Request::ip() == '97.93.96.123')
                   <li><a href="{{ url('/login') }}">Login</a></li>
                   {{-- <li><a href="{{ url('/register') }}">Register</a></li> --}}
               @else 
